@@ -1,0 +1,51 @@
+import React, { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { assets } from '../assets/assets';
+import "tailwindcss";
+
+const NavBar = () => {
+
+const navigate = useNavigate()
+const [menu, setShowMenu] = useState(false)
+const [token, setToken ] = useState(true)
+
+  return (
+    <div className="max-w-7xl mx-auto px-4">
+  <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400">
+
+    {/* Logo */}
+    <img src={assets.logo} alt="Logo" className="h-10" />
+
+    {/* Nav Links */}
+    <ul className="flex gap-8 text-gray-700">
+      <NavLink to="/" className={'hover:underline transition-all duration-200'}>HOME</NavLink>
+      <NavLink to="/doctors" className={'hover:underline transition-all duration-200'}>ALL DOCTORS</NavLink>
+      <NavLink to="/about" className={'hover:underline transition-all duration-200'}>ABOUT</NavLink>
+      <NavLink to="/contact" className={'hover:underline transition-all duration-200'}>CONTACT</NavLink>
+    </ul>
+
+    {/* Button */}
+    <div>
+        {
+            token ? 
+            <div className='flex items-center gap-2 cursor-pointer group relative'>
+                <img className='w-8 rounded-full' src={assets.profile_pic} alt=""/>
+                <img className='w-2.5' src={assets.dropdown_icon} alt=""/>
+            </div>:
+                <button onClick={()=>navigate('/login')} className="bg-blue-500 text-white px-8 py-3 rounded-full font-light hidden md:block">
+                Create Account
+            </button>
+
+        }
+    </div>
+    
+
+  </div>
+</div>
+
+
+  )
+}
+
+export default NavBar;
+
