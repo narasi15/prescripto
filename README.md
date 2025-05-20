@@ -5,6 +5,9 @@ Tools and Frameworks: React, TailWind CSS, JavaScript, and VSCode
 
 ![App Screenshot](./images/home.png)
 
+Doctors Page:
+![App Screenshot](./images/doctors.png)
+
 About Page:
 ![App Screenshot](./images/about.png)
 
